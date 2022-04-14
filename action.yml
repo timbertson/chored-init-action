@@ -1,6 +1,10 @@
 name: 'Chored init'
 description: 'Caching for chored repositories'
 inputs:
+  moduleRoot:
+    description: Root directory to scan for remote deno imports; defaults to `choredefs`
+    required: false
+
 runs:
   using: 'node16'
   main: 'out/main.js'

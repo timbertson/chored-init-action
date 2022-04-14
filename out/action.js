@@ -117,6 +117,7 @@ function restore(options, restoreCache) {
 }
 exports.restore = restore;
 function main() {
+    Core.info("initializing chored caches ...");
     return restore({
         keyPrefix: 'chored',
         roots: ['choredefs'],
@@ -126,6 +127,7 @@ function main() {
 exports.main = main;
 function save() {
     return __awaiter(this, void 0, void 0, function* () {
+        Core.info("saving chored caches ...");
         try {
             const misses = JSON.parse(Core.getState(stateKey));
             yield Promise.all(misses.map((miss) => __awaiter(this, void 0, void 0, function* () {

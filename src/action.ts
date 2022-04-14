@@ -136,6 +136,7 @@ export async function restore(options: Options, restoreCache: (_: CacheSpec) => 
 }
 
 export function main(): Promise<void> {
+  Core.info("initializing chored caches ...")
   return restore({
     keyPrefix: 'chored',
     roots: ['choredefs'],
@@ -144,6 +145,7 @@ export function main(): Promise<void> {
 }
 
 export async function save() {
+  Core.info("saving chored caches ...")
   try {
     const misses = JSON.parse(Core.getState(stateKey)) as CacheSpec[]
     await Promise.all(misses.map(async (miss: CacheSpec) => {
