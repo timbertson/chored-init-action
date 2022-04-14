@@ -1,0 +1,15 @@
+{
+  "name": "self-update-action",
+  "scripts": {
+    "compile": "tsc -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "*",
+    "typescript": "^4.0.2"
+  },
+  "dependencies": {
+    "@actions/cache": "^2.0.2",
+    "@actions/core": "^1.6.0",
+    "@root/walk": "^1.1.0"
+  }
+}

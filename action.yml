@@ -1,0 +1,12 @@
+name: 'Chored init'
+description: 'Caching for chored repositories'
+inputs:
+runs:
+  using: 'node16'
+  main: 'out/main.js'
+  post: 'out/post.js'
+  post-if: 'success()'
+
+branding:
+  icon: 'tag'
+  color: 'orange'
