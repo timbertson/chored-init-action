@@ -107,6 +107,9 @@ function restore(options, restoreCache) {
         }
         // FS reads are all initiated, wait for them to complete
         yield Promise.all(work);
+        for (const url of modulesDigest.urlList()) {
+            console.log('- ' + url);
+        }
         console.log(`module cache derived from ${modulesDigest.urls.size} remote imports in ${modulesDigest.paths.size} files`);
         yield restoreWithLogging({
             key: `${options.keyPrefix}-mod-${modulesDigest.digest('')}`,

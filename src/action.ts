@@ -125,6 +125,10 @@ export async function restore(options: Options, restoreCache: (_: CacheSpec) => 
 	// FS reads are all initiated, wait for them to complete
 	await Promise.all(work)
 
+	for (const url of modulesDigest.urlList()) {
+		console.log('- ' + url)
+	}
+
 	console.log(`module cache derived from ${modulesDigest.urls.size} remote imports in ${modulesDigest.paths.size} files`)
 	await restoreWithLogging({
 		key: `${options.keyPrefix}-mod-${modulesDigest.digest('')}`,
