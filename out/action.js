@@ -33,7 +33,7 @@ class Digest {
         }
     }
     addRemoteImportsIn(path, str) {
-        for (const [match] of str.matchAll(/^(import|export).*/gm)) {
+        for (const [match] of str.matchAll(/(^(import|export).*)|( from +['"].*)/gm)) {
             this.addUrlsIn(path, match);
         }
     }
